@@ -1,0 +1,90 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e3e8de">
+  <title>Wildlife Guardian | Endangered Species Finder</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <div class="eyebrow">🌿 WILDLIFE CONSERVATION PROJECT</div>
+      <h1>Wildlife Guardian</h1>
+      <p class="subtitle">Endangered Species Finder</p>
+      <p class="lede">
+        Search an animal by its common name. Explore its conservation status,
+        discover more threatened related species, and compare a plain Binary
+        Search Tree (BST) with a self-balancing AVL tree.
+      </p>
+      <div class="hero-note">SEARCH. COMPARE. CONSERVE.</div>
+    </header>
+
+    <section class="search-panel" aria-label="Species search">
+      <label class="field-label" for="q">Find an animal</label>
+
+      <div class="search">
+        <input
+          id="q"
+          type="search"
+          list="hints"
+          placeholder="Try lion, tiger, giant panda..."
+          autocomplete="off"
+          aria-label="Animal common name"
+        >
+        <datalist id="hints"></datalist>
+        <button id="go" type="button">Search species</button>
+      </div>
+
+      <p class="search-hint">
+        Enter a common name, or select a suggestion as you type.
+      </p>
+
+      <fieldset class="mode-field">
+        <legend>Choose your data structure</legend>
+        <div class="modes" role="radiogroup" aria-label="Tree used for the search">
+          <label>
+            <input type="radio" name="mode" value="bst">
+            <span>Plain BST</span>
+          </label>
+          <label>
+            <input type="radio" name="mode" value="avl" checked>
+            <span>AVL tree</span>
+          </label>
+          <label>
+            <input type="radio" name="mode" value="both">
+            <span>Compare both</span>
+          </label>
+        </div>
+      </fieldset>
+    </section>
+
+    <section id="readout" hidden aria-label="Search performance comparison"></section>
+
+    <section id="results" aria-live="polite" aria-busy="false">
+      <div class="welcome">
+        <div class="welcome-icon">🐾</div>
+        <h2>Explore the animal kingdom</h2>
+        <p>
+          Search for an animal to view its image, scientific name,
+          conservation status, taxonomic details, and more threatened relatives.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>🌱 Wildlife Guardian</p>
+      <span>THE FUTURE OF WILDLIFE DEPENDS ON WHAT WE PROTECT TODAY</span>
+    </footer>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

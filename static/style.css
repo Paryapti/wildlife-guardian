@@ -1,0 +1,622 @@
+
+:root {
+  --bg: #e3e8de;
+  --paper: #f8faf5;
+  --paper-alt: #edf3e9;
+  --ink: #1b2b22;
+  --muted: #55645a;
+  --line: #c3d0bf;
+  --accent: #20605c;
+  --accent-ink: #ffffff;
+  --avl: #20605c;
+  --bst: #8a6a2f;
+
+  --cr: #c4281c;
+  --en: #c8651b;
+  --vu: #9a7d0a;
+  --nt: #4f7a3a;
+  --ew: #6a3d7a;
+  --lc: #3d7a52;
+  --dd: #6b6b6b;
+  --ex: #222222;
+
+  --radius: 16px;
+  --shadow: 0 8px 28px rgba(31, 58, 39, 0.07);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font: 400 1rem/1.6 "Public Sans", system-ui, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+/* Header */
+
+.hero {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: #d5e5d0;
+  border: 1px solid #bfd3b8;
+  border-radius: 24px;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  margin-bottom: 0.7rem;
+}
+
+h1 {
+  font: 600 clamp(2.4rem, 6vw, 4rem)/1.05 "Newsreader", Georgia, serif;
+  margin: 0;
+  letter-spacing: -0.035em;
+  color: #17472b;
+}
+
+.subtitle {
+  font: 600 1.25rem "Newsreader", Georgia, serif;
+  margin: 0.5rem 0 1rem;
+  color: var(--accent);
+}
+
+.lede {
+  max-width: 690px;
+  margin: 0 auto;
+  color: #425b48;
+}
+
+.hero-note {
+  margin-top: 1.3rem;
+  color: #245a38;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+/* Search panel */
+
+.search-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.field-label,
+.mode-field legend {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.55rem;
+}
+
+.search {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  font-size: 1.05rem;
+  padding: 0.85rem 1rem;
+  background: #ffffff;
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+  border-radius: 9px;
+}
+
+.search input::placeholder {
+  color: #7a897c;
+}
+
+.search button,
+button.primary {
+  padding: 0.85rem 1.3rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: 0;
+  border-radius: 9px;
+  font-weight: 700;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.search button:hover,
+button.primary:hover {
+  filter: brightness(1.1);
+}
+
+.search button:active,
+button.primary:active {
+  transform: translateY(1px);
+}
+
+.search-hint {
+  color: var(--muted);
+  font-size: 0.84rem;
+  margin: 0.55rem 0 1.2rem;
+}
+
+.mode-field {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.mode-field legend {
+  padding: 0;
+}
+
+.modes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.modes label {
+  cursor: pointer;
+}
+
+.modes input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modes span {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--paper);
+  transition: background 0.15s ease;
+}
+
+.modes input:checked + span {
+  background: var(--ink);
+  color: #ffffff;
+  border-color: var(--ink);
+}
+
+.modes input:focus-visible + span {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Performance comparison */
+
+#readout {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.3rem 1.4rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+#readout h2 {
+  font-size: 1.08rem;
+  margin: 0 0 1rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 7rem minmax(70px, 1fr) minmax(145px, auto);
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.45rem 0;
+}
+
+.row .bar {
+  height: 13px;
+  background: #e1e8de;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.row .bar i {
+  display: block;
+  height: 100%;
+  min-width: 3px;
+  border-radius: 99px;
+}
+
+.row .bar i.avl {
+  background: var(--avl);
+}
+
+.row .bar i.bst {
+  background: var(--bst);
+}
+
+.row small {
+  color: var(--muted);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.row b {
+  font-weight: 700;
+}
+
+.facts {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.87rem;
+}
+
+/* Initial and empty states */
+
+.welcome {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: var(--paper);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+.welcome-icon {
+  font-size: 2.5rem;
+}
+
+.welcome h2 {
+  font: 600 1.7rem "Newsreader", Georgia, serif;
+  margin: 0.5rem 0;
+}
+
+.welcome p {
+  max-width: 580px;
+  margin: 0 auto;
+  color: var(--muted);
+}
+
+.empty {
+  color: var(--muted);
+}
+
+.error {
+  background: #fff0ee;
+  color: #a21c14;
+  border: 1px solid #e9b8b2;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+/* Main species card */
+
+.specimen {
+  --s: var(--dd);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--s);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.specimen h3 {
+  font: 600 2rem/1.15 "Newsreader", Georgia, serif;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.sci {
+  font: italic 400 1.2rem "Newsreader", Georgia, serif;
+  color: var(--muted);
+  margin: 0.3rem 0 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #ffffff;
+  background: var(--s, var(--dd));
+}
+
+/* Species images */
+
+.species-image-wrap {
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.species-image {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  height: 260px;
+  object-fit: cover;
+  object-position: center;
+  background: #e4ece0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.image-credit {
+  color: var(--muted);
+  font-size: 0.76rem;
+  margin: 0.35rem 0 0;
+}
+
+.image-credit a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+.specimen-details {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.5rem;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: minmax(140px, max-content) minmax(0, 1fr);
+  gap: 0.4rem 1.2rem;
+  margin: 1rem 0 0;
+}
+
+dt {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Related species */
+
+.worse {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.2rem;
+}
+
+.worse h4 {
+  font-size: 1.05rem;
+  margin: 0 0 0.6rem;
+}
+
+.worse ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.worse li {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px dotted var(--line);
+}
+
+.worse li:last-child {
+  border-bottom: 0;
+}
+
+.related-image {
+  display: block;
+  width: 82px;
+  height: 65px;
+  object-fit: cover;
+  background: #e4ece0;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.related-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 82px;
+  height: 65px;
+  background: var(--paper-alt);
+  border-radius: 8px;
+  font-size: 1.6rem;
+}
+
+.who {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.who a {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.who em {
+  display: block;
+  color: var(--muted);
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.worse .chip {
+  font-size: 0.75rem;
+  text-align: center;
+  max-width: 155px;
+}
+
+.note {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.suggest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.suggest button {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.suggest button:hover {
+  background: var(--paper-alt);
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  padding: 1.5rem 0 0.5rem;
+  color: var(--muted);
+}
+
+footer p {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+footer span {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+/* Loading */
+
+#results[aria-busy="true"] {
+  opacity: 0.65;
+}
+
+/* Responsive */
+
+@media (max-width: 650px) {
+  main {
+    padding: 1rem 0.8rem 2rem;
+  }
+
+  .hero {
+    padding: 1.7rem 1rem;
+    border-radius: 16px;
+  }
+
+  .search-panel {
+    padding: 1rem;
+  }
+
+  .search {
+    flex-direction: column;
+  }
+
+  .search button {
+    width: 100%;
+  }
+
+  .row {
+    grid-template-columns: 5rem minmax(50px, 1fr);
+  }
+
+  .row small {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+
+  .specimen {
+    padding: 1rem;
+  }
+
+  .specimen h3 {
+    font-size: 1.7rem;
+  }
+
+  .species-image {
+    max-width: 100%;
+    height: 220px;
+  }
+
+  dl {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+
+  dd {
+    margin-bottom: 0.6rem;
+  }
+
+  .worse li {
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .related-image,
+  .related-placeholder {
+    width: 62px;
+    height: 55px;
+  }
+
+  .worse li > .chip {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

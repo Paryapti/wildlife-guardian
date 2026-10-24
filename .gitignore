@@ -1,0 +1,8 @@
+
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*.cache.pkl
+image_cache.json
+.env
